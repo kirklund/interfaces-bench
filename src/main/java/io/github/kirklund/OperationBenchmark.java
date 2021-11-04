@@ -62,6 +62,15 @@ public class OperationBenchmark {
   }
 
   @Benchmark @Threads(1)
+  public void noop_threads1(Blackhole blackhole) {
+    // do nothing
+  }
+  @Benchmark @Threads(100)
+  public void noop_threads100(Blackhole blackhole) {
+    // do nothing
+  }
+
+  @Benchmark @Threads(1)
   public void staticOperation_threads1(Blackhole blackhole) {
     blackhole.consume(StaticOperation.execute());
   }
